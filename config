@@ -149,18 +149,20 @@ bindsym XF86AudioLowerVolume exec amixer -q set Master 3- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle
 bindsym XF86Launch1 exec pcmanfm
 bindsym XF86Display exec toggle-display.sh
+bindsym $mod+o exec lxpanel --profile Lubuntu 
+bindsym $mod+p exec lxpanelctl exit
 
 
 exec nitrogen --restore & 
-
+#exec --no-startup-id nm-applet
 bindsym $mod+Shift+S exec "xrandr --auto;xrandr -s 0"
 
 assign [class="rdesktop"] 6
 assign [class="Lxterminal"] 1
-assign [class="Thunderbird"] 2
-assign [class="Pidgin"] 3
-assign [class="Skype"] 3
-assign [class="Chromium-browser"] 4
+assign [class="Thunderbird"] 9
+assign [class="Pidgin"] 8
+assign [class="Skype"] 8
+assign [class="Chromium-browser"] 7
 exec lxterminal
 exec lxterminal
 exec thunderbird
@@ -168,6 +170,8 @@ exec pidgin
 exec skype
 exec chromium-browser
 exec --no-startup-id i3-msg 'workspace 1;'
+exec pasystray
+
 #exec /usr/bin/lxkeymap -a >/home/ssamot/test.txt 2>/home/ssamot/test2.txt
 #exec --no-startup-id i3-msg 'workspace 1; exec lxterminal; workspace 1'
 #exec --no-startup-id i3-msg 'workspace 1; exec lxterminal; workspace 1'
