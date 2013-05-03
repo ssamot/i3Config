@@ -144,23 +144,27 @@ bindsym $mod+Shift+E exec lxsession-logout
 exec killall pcmanfm
 # sound bindings
 
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 3+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 3- unmute
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 500+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 500- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle
 bindsym XF86Launch1 exec pcmanfm
 bindsym XF86Display exec toggle-display.sh
-bindsym $mod+o exec lxpanel --profile Lubuntu 
+bindsym $mod+o exec lxpanel --profile Lubuntu
 bindsym $mod+p exec lxpanelctl exit
 
+# use xmodmap -pke to find key bindings
+bindsym $mod+minus workspace prev
+bindsym $mod+equal workspace next
+
+for_window [title="xfce4-notifyd"] floating enable; border none; focus mode_toggle.
 
 
-
-
-
-exec nitrogen --restore & 
+exec nitrogen --restore &
 #exec --no-startup-id nm-applet
 bindsym $mod+Shift+S exec "xrandr --auto;xrandr -s 0"
 
+
+# autostart applications, use xprop to find class
 assign [class="rdesktop"] 6
 assign [class="Lxterminal"] 1
 assign [class="ublime"] 2
@@ -169,6 +173,8 @@ assign [class="Thunderbird"] 9
 assign [class="Pidgin"] 8
 assign [class="Skype"] 8
 assign [class="Chromium-browser"] 7
+assign [class="iferea"] 10
+assign [class="urpial"] 10
 exec lxterminal
 exec lxterminal
 exec thunderbird
@@ -177,16 +183,7 @@ exec skype
 exec chromium-browser
 exec sublime-text
 exec eclipse
-#exec jupiter
+exec turpial
+exec liferea
 exec --no-startup-id i3-msg 'workspace 1;'
 exec pasystray
-3
-
-#exec /usr/bin/lxkeymap -a >/home/ssamot/test.txt 2>/home/ssamot/test2.txt
-#exec --no-startup-id i3-msg 'workspace 1; exec lxterminal; workspace 1'
-#exec --no-startup-id i3-msg 'workspace 1; exec lxterminal; workspace 1'
-#exec --no-startup-id i3-msg 'workspace 2; exec thunderbird; workspace 1'
-#exec --no-startup-id i3-msg 'workspace 3; exec pidgin; workspace 1'
-#exec --no-startup-id i3-msg 'workspace 3; exec skype; workspace 1'
-#exec --no-startup-id i3-msg 'workspace 4; exec chromium-browser; workspace 1'
-
