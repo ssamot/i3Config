@@ -18,7 +18,7 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec lxterminal
+bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
 bindsym $mod+Shift+Q kill
@@ -140,17 +140,20 @@ bar {
 }
 
 bindsym Print exec scrot
-bindsym $mod+Shift+E exec lxsession-logout
-exec killall pcmanfm
+bindsym $mod+Shift+E exec xscreensaver-command -lock
+bindsym Control+Mod1+Delete exec xfce4-session-logout
 # sound bindings
 
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 500+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 500- unmute
-bindsym XF86AudioMute exec amixer -q set Master toggle
-bindsym XF86Launch1 exec pcmanfm
+#bindsym XF86AudioRaiseVolume exec amixer -q set #Master 500+ unmute
+#bindsym XF86AudioLowerVolume exec amixer -q set #Master 500- unmute
+#bindsym XF86AudioMute exec amixer -q set Master toggle
+bindsym XF86Launch1 exec thunar
 bindsym XF86Display exec toggle-display.sh
-bindsym $mod+o exec lxpanel --profile Lubuntu
-bindsym $mod+p exec lxpanelctl exit
+
+
+bindsym $mod+o exec xfce4-panel -d
+bindsym $mod+p exec xfce4-panel -q
+
 
 # use xmodmap -pke to find key bindings
 bindsym $mod+minus workspace prev
@@ -166,24 +169,31 @@ bindsym $mod+Shift+S exec "xrandr --auto;xrandr -s 0"
 
 # autostart applications, use xprop to find class
 assign [class="rdesktop"] 6
-assign [class="Lxterminal"] 1
+assign [class="terminal"] 1
 assign [class="ublime"] 2
+assign [class="jetbrains-pycharm"] 3
 assign [class="Eclipse"] 3
+assign [class="jetbrains-idea-ce"] 3
 assign [class="Thunderbird"] 9
 assign [class="Pidgin"] 8
 assign [class="Skype"] 8
 assign [class="Chromium-browser"] 7
+assign [class="Firefox"] 7
 assign [class="iferea"] 10
-assign [class="urpial"] 10
-exec lxterminal
-exec lxterminal
+assign [class="olly"] 10
+exec xfce4-terminal
+exec xfce4-terminal
 exec thunderbird
 exec pidgin
 exec skype
 exec chromium-browser
-exec sublime-text
-exec eclipse
-exec turpial
+exec subl
+exec pycharm
+exec idea.sh
+exec polly
 exec liferea
 exec --no-startup-id i3-msg 'workspace 1;'
-exec pasystray
+exec indicator-cpufreq
+exec dropbox
+exec --no-startup-id i3-msg 'workspace 3; layout stacking; workspace 1'
+
